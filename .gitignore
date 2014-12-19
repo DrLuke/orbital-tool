@@ -1,0 +1,9 @@
+#ignore contents of the build directory
+build/*
+
+#ignore vim swap files
+*.swp
+
+#ignore all .ycm_extra_conf files except for the .py file
+.ycm_extra_conf.*
+!.ycm_extra_conf.py

@@ -7,7 +7,7 @@
 class craftLog
 {
 	public:
-		craftLog();
+		craftLog(arma::vec3 logPos, arma::vec3 logVel, double logTimestep);
 		~craftLog();
 
 		arma::vec3 pos;
@@ -67,7 +67,7 @@ class craft
 		std::string name;
 		double timestep;
 
-		std::vector<logData*> log;
+		std::vector<craftLog*> log;
 };
 
 #endif

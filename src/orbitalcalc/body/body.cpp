@@ -23,6 +23,5 @@ arma::vec3 body::calcForce(arma::vec3 craftPos)
 	arma::vec3 relpos = craftPos - pos;
 	double relposLen = arma::norm(relpos);
 	arma::vec3 force = -(gravParam/(relposLen*relposLen)) * arma::normalise(relpos);
-
 	return force;
 }

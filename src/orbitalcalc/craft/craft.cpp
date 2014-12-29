@@ -20,7 +20,8 @@ void craft::update()
 
 void craft::logData()
 {
-	
+	craftLog* tempLog = new craftLog(pos, vel, timestep);
+	log.push_back(tempLog);
 }
 
 void craft::applyUnitForce(arma::vec3 force)
@@ -30,3 +31,10 @@ void craft::applyUnitForce(arma::vec3 force)
 
 
 
+craftLog::craftLog(arma::vec3 logPos, arma::vec3 logVel, double logTimestep) : pos(logPos), vel(logVel), timestep(logTimestep)
+{
+}
+
+craftLog::~craftLog()
+{
+}

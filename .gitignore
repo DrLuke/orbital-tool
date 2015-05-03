@@ -11,3 +11,7 @@ build/*
 #glade buffer and backup files
 ui.glade~
 \#ui.glade\#
+
+#python files
+*.pyc
+__pycache__/*

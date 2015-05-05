@@ -9,8 +9,8 @@ build/*
 !.ycm_extra_conf.py
 
 #glade buffer and backup files
-ui.glade~
-\#ui.glade\#
+*.glade~
+\#*.glade\#
 
 #python files
 *.pyc

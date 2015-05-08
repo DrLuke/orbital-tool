@@ -1,10 +1,14 @@
 #!/usr/bin/python3
 
-modulename = "testobject"
-description = "This is a testobject!"
-longdescription = "This is a testobject meant for testing various things, including a long description"
+pluginname = "testplugin"
+plugindescription = "This is a plugin that tests things"
+classes = ["testobject"]
+
 
 class testobject():
-    
-    def __init__(self):
-        print("This is testobject")
+    name = "Testobject"
+    description = "This is a testobject"
+
+    def __init__(self, ID):
+        self.ID = ID
+        print("This is testobject, my ID is: " + str(self.ID))

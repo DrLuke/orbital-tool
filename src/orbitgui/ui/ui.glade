@@ -41,7 +41,11 @@
       <column type="gint"/>
       <!-- column-name Name -->
       <column type="gchararray"/>
+      <!-- column-name objectID -->
+      <column type="guint64"/>
     </columns>
+    <signal name="row-deleted" handler="onTreeRowDeleted" swapped="no"/>
+    <signal name="row-inserted" handler="onTreeRowInserted" swapped="no"/>
   </object>
   <object class="GtkWindow" id="mainWindow">
     <property name="can_focus">False</property>

@@ -47,10 +47,11 @@ class newobjectWindow:
         assignID = self.__class__.contID
         self.__class__.contID += 1
         
+        # retrieve module and class of plugin that shall be loaded
         module = getattr(plugins, plugin)
         newClass = getattr(module, classname)
-        newObject = newClass(assignID)
-        self.owner.treeobjects.append(newObject)
+        newObject = newClass(assignID)  # create new object from class
+        self.owner.newObject = newObject
 
-        self.window.destroy()
+        self.window.destroy()   # We don't need the window anymore
         

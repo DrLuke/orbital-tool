@@ -17,8 +17,10 @@ class mainWindow:
         
         # Treeview
         self.treeview = self.builder.get_object("mainList")
-        self.treeModel = self.builder.get_object("mainTreeStore")
-        self.treeobjects = []
+        self.treeStore = self.builder.get_object("mainTreeStore")
+        self.newObject = None   #Used for when a new object is created
+        self.moveObject = None  #Used for when an object gets moved
+        self.treeobjects = {}   #Key: Path in treeview, Value: Objects associated with tree row
 
         if(self.window):
             self.window.connect("destroy", lambda x: Gtk.main_quit())
@@ -34,6 +36,7 @@ class mainWindow:
     # Toolbar
     def onNewClicked(self, button):
         self.newobjectWindow = newobjectWindow("ui/newobjectWindow.glade", self)
+        self.newobjectWindow.window.connect("destroy", self.onNewobjectWindowDestroyed)
 
     def onOpenClicked(self, button):
         print("'Open' button pressed")
@@ -42,4 +45,20 @@ class mainWindow:
         print("'Save' button pressed")
 
     # Treeview
-    
+    def onNewobjectWindowDestroyed(self, *args):
+        if(not self.newObject == None):
+            # Add object to tree
+            treeiter = self.treeStore.append(None)
+            self.treeStore[treeiter] = [self.newObject.ID, self.newObject.name, id(self.newObject)]
+            
+            # Store object in dictionary
+            self.treeobjects[id(self.newObject)] = self.newObject
+            # Clear reference to object
+            self.newObject = None
+
+
+    def onTreeRowInserted(self, model, path, treeiter):
+        pass
+
+    def onTreeRowDeleted(self, mode, path):
+        pass

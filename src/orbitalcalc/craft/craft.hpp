@@ -3,18 +3,19 @@
 
 #include <armadillo>
 #include <vector>
+#include <fstream>
+#include <iostream>
 
 class craftLog
 {
 	public:
 		craftLog(arma::vec3 logPos, arma::vec3 logVel, double logTimestep);
 		~craftLog();
+		
 
 		arma::vec3 pos;
 		arma::vec3 vel;
 		double timestep;
-
-
 };
 
 class craft
@@ -52,11 +53,12 @@ class craft
 
 		// Methods
 		void update();	// Reset to initial conditions
-		void logData();
+		void logData();	// Log single datapoint
 		
 		// Functions
 		void applyUnitForce(arma::vec3 force);	// Apply a force with the unit Newton/Kg
-	
+		void writeLog(std::string filename);
+
 	private:
 		arma::vec3 pos = arma::zeros<arma::vec>(3);
 		arma::vec3 vel = arma::zeros<arma::vec>(3);

@@ -31,13 +31,11 @@ void space::simulate(double timestep)
 	// Iterate through all crafts and apply forces from bodies to them
 	for(std::list<craft*>::iterator itc = crafts.begin(); itc != crafts.end(); itc++)
 	{
+		(*itc)->setTimestep(timestep);	// Update the timestep on each craft
 		for(std::list<body*>::iterator itb = bodies.begin(); itb != bodies.end(); itb++)
 		{
-			(*itc)->setTimestep(timestep);	// Update the timestep on each craft
-			(*itc)->applyUnitForce( (*itb)->calcForce( (*itc)->getPos() ) ); // Apply force to crafts
+			(*itc)->applyUnitForce( (*itb)->calcForce( (*itc)->getPos() ) ); // Apply forces from each body to craft
 		}
 		(*itc)->update();	// After all forces have been added, update position of craft
 	}
 }
-
-

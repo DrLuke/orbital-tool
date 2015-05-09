@@ -4,13 +4,10 @@ import signal, sys
 
 from gi.repository import Gtk 
 import mainwindow
-import objects
 
 def main():
-    
     mainwin = mainwindow.mainWindow("ui/ui.glade")
     
-    a = objects.plugin1.testobject()
 
     Gtk.main()
 

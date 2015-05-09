@@ -19,7 +19,6 @@ class mainWindow:
         self.treeview = self.builder.get_object("mainList")
         self.treeStore = self.builder.get_object("mainTreeStore")
         self.newObject = None   #Used for when a new object is created
-        self.moveObject = None  #Used for when an object gets moved
         self.treeobjects = {}   #Key: Path in treeview, Value: Objects associated with tree row
 
         if(self.window):

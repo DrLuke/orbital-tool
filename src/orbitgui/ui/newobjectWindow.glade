@@ -49,6 +49,7 @@
                 <property name="model">newObjectsStore</property>
                 <property name="search_column">0</property>
                 <property name="enable_grid_lines">vertical</property>
+                <signal name="row-activated" handler="onRowActivated" swapped="no"/>
                 <child internal-child="selection">
                   <object class="GtkTreeSelection" id="treeviewSelection"/>
                 </child>

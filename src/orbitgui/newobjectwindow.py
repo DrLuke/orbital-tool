@@ -40,6 +40,10 @@ class newobjectWindow:
         #self.owner.treeobjects.append(selection)
         model, listiter = self.treeviewSelection.get_selected()
         self.newObject(self.liststore.get_value(listiter, 2), self.liststore.get_value(listiter, 3))
+    
+    def onRowActivated(self, treeview, path, column):
+        rowData = self.liststore[self.liststore.get_iter(path)]
+        self.newObject(rowData[2], rowData[3])
 
 
     def newObject(self, plugin, classname):

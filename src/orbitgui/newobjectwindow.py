@@ -50,7 +50,7 @@ class newobjectWindow:
         # retrieve module and class of plugin that shall be loaded
         module = getattr(plugins, plugin)
         newClass = getattr(module, classname)
-        newObject = newClass(assignID)  # create new object from class
+        newObject = newClass(assignID, self.owner)  # create new object from class
         self.owner.newObject = newObject
 
         self.window.destroy()   # We don't need the window anymore

@@ -59,5 +59,9 @@ class mainWindow:
     def onTreeRowInserted(self, model, path, treeiter):
         pass
 
-    def onTreeRowDeleted(self, mode, path):
+    def onTreeRowDeleted(self, model, path):
         pass
+
+    def onRowActivated(self, tree, path, column):
+        activatedObject = self.treeobjects[self.treeStore[self.treeStore.get_iter(path)][2]]
+        activatedObject.onActivated()

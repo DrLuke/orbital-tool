@@ -4,6 +4,7 @@ pluginname = "testplugin"
 plugindescription = "This is a plugin that tests things"
 classes = ["testobject"]
 
+from gi.repository import Gtk
 
 class testobject():
     name = "Testobject"
@@ -21,3 +22,10 @@ class testobject():
 
     def onActivated(self):
         print("I have been activated! Testobject ID: " + str(self.ID))
+
+    def showContextMenu(self, event):
+        #menu = Gtk.Menu()
+        #menuitems = []
+        #menuitems.append(Gtk.MenuItem("Properties"))
+        print("Context menu triggered")
+

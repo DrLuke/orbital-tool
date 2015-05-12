@@ -290,6 +290,7 @@
                 <property name="can_focus">True</property>
                 <property name="model">mainTreeStore</property>
                 <property name="reorderable">True</property>
+                <signal name="button-press-event" handler="onButtonPressEvent" swapped="no"/>
                 <signal name="row-activated" handler="onRowActivated" swapped="no"/>
                 <child internal-child="selection">
                   <object class="GtkTreeSelection" id="treeview-selection1"/>

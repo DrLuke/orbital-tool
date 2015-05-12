@@ -65,3 +65,11 @@ class mainWindow:
     def onRowActivated(self, tree, path, column):
         activatedObject = self.treeobjects[self.treeStore[self.treeStore.get_iter(path)][2]]
         activatedObject.onActivated()
+
+    def onButtonPressEvent(self, treeview, event):
+        if(event.button == 3):
+            path = self.treeview.get_path_at_pos(int(event.x), int(event.y))
+            path = path[0]
+            if(not path == None):
+                activatedObject = self.treeobjects[self.treeStore[self.treeStore.get_iter(path)][2]]
+                activatedObject.showContextMenu(event)

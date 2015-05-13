@@ -50,6 +50,7 @@ class mainWindow:
             treeiter = self.treeStore.append(None)
             self.treeStore[treeiter] = [self.newObject.ID, self.newObject.name, id(self.newObject)]
             
+            self.newObject.treeIter = treeiter
             # Store object in dictionary
             self.treeobjects[id(self.newObject)] = self.newObject
             # Clear reference to object
@@ -73,3 +74,9 @@ class mainWindow:
                 path = path[0]
                 activatedObject = self.treeobjects[self.treeStore[self.treeStore.get_iter(path)][2]]
                 activatedObject.showContextMenu(event)
+
+    def requestDelete(self, objectID, deliter):
+        self.treeobjects[objectID] = None
+        self.treeStore.remove(deliter)
+
+
